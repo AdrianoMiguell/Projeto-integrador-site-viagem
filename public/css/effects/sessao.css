@@ -1,0 +1,10 @@
+.sessoes {
+    border-radius: 10px;
+    margin: .5rem;
+    padding: 1rem;
+    box-shadow: 2px 2px 3px #2B303A22;
+}
+
+.active {
+    display: block;
+}

@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Maitree:wght@400;500;600&display=swap");
+
+@media screen and (min-width: 992px) {
+    .div-informacoes .div-title{
+        display: none;
+    }
+    .sessao_imagens_cidade .div-title{
+        display: block;
+    }
+    .sessao-informacoes-iniciais {
+        flex-direction: row;
+        gap: 4rem;
+        padding: 5rem 3rem !important;
+    }
+}
+@media screen and (max-width: 992px) {
+    .sessao-informacoes-iniciais {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .div-informacoes .div-title{
+        display: block;
+    }
+    .sessao_imagens_cidade .div-title{
+        display: none;
+    }
+    .sessao_imagens_cidade .div_imagem_cidade {
+        justify-content: center !important;
+    }
+}
+@media screen and (max-width: 576px) {
+    .sessao-informacoes-iniciais {
+        align-items: flex-start;
+    }
+}
+
+
+body {
+    background-color: rgb(var(--main-c)) !important;
+}
+nav {
+    background-color: rgba(var(--sec-c), 0.05) !important;
+}
+nav *:not(.nav-item-search input):not(.dropdown-item) {
+    color: rgb(var(--sec-c)) !important;
+}
+.sessao-informacoes-iniciais {
+    font-family: "Italiana", sans-serif;
+    display: flex;
+    flex-basis: content;
+    justify-content: center;
+    padding: 5rem 1.5rem;
+}
+.sessao-informacoes-iniciais .div-informacoes {
+    min-width: 25vw;
+    max-width: 30vw;
+}
+main * {
+    color: rgb(var(--sec-c));
+}
+
+.div-title .title-cidade {
+    font-family: "Italiana", sans-serif !important;
+    text-decoration-line: underline;
+    text-underline-offset: 8px;
+}
+.div-title .title-estado {
+    font-family: "Maitree", serif;
+}
+
+.sessao_imagens_cidade {
+    margin: 0 1rem ;
+    display: grid;
+=    gap: 1rem;
+}
+.imagem_inicial_da_cidade img {
+    min-width: 300px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+.sessao_imagens_cidade .div_imagem_cidade {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.sessao-informacoes-iniciais div {
+}

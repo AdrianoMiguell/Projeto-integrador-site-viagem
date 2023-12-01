@@ -1,0 +1,27 @@
+.imagem_ponto_turistico {
+    display: grid;
+    text-align: start;
+    gap: 5px;
+}
+.imagem_ponto_turistico .imagem_turistica {
+    width: 250px;
+    height: auto;
+}
+.imagem_ponto_turistico .legenda {
+    font-size: 10pt;
+}
+
+.div_imagem_cidade {
+    display: grid;
+    text-align: start;
+    gap: 5px;
+}
+.div_imagem_cidade .imagem {
+    width: 250px;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+}
+.div_imagem_cidade .legenda {
+    font-size: 10pt;
+}
