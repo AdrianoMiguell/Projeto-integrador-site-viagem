@@ -1,10 +1,6 @@
 <nav class="navbar navbar-expand-lg px-5 ">
     <div class="container-fluid">
-        @if (isset(Auth::user()->id))
-            <a class="navbar-brand" href="/workspaceadmin"> Workspace NOMASHE </a>
-        @else
-            <a class="navbar-brand" href="/">NÔMASHE</a>
-        @endif
+        <a class="navbar-brand" href="/">NÔMASHE</a>
 
         <ul class="navbar-nav flex-row gap-5 justify-content-start align-items-center flex-grow-1 px-4">
 
@@ -54,10 +50,13 @@
                 </button>
             </li>
             <li class="nav-item nav-item-search">
-                <form class="d-flex" role="search">
-                    @csrf
-                    <input class="form-control text-dark mx-1" type="search" placeholder="Search" aria-label="Search" name="pesquisa">
-                    <button class="btn btn-outline-success" type="submit">Se</button>
+                <form class="d-flex" role="search" action="{{ route('search.viagem') }}">
+
+                    <input class="form-control text-dark mx-1" type="search" placeholder="Search" aria-label="Search"
+                        name="search">
+                    <button class="btn btn-outline-success" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
                 </form>
             </li>
 
@@ -104,11 +103,6 @@
                 @endforeach
             </div>
         @else
-            <div>
-                Some text as placeholder. In real life you can have the elements you have chosen. Like, text,
-                images,
-                lists, etc.
-            </div>
             <ul>
                 <li class="nav-item">
                     <a href="#"><span>Roteiros de Viagens</span></a>

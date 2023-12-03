@@ -33,7 +33,7 @@
                     <div class="mt-2">
                         <label for="descricao" class="form-label"> Descrição </label>
                         <textarea name="descricao" id="descricao" cols="30" rows="10" maxlength="5000" minlength="25"
-                            class="form-control"> {{ $viagem->roteiro }} </textarea>
+                            class="form-control"> {{ $viagem->descricao }} </textarea>
                     </div>
                     <div class="mt-2">
                         <label for="sugestoes" class="form-label"> Sugestões </label>

@@ -39,7 +39,7 @@
                             {{ $cidade->nome }}
                         </th>
                         <td>
-                            {{ $cidade->descricao }}
+                            <div style="max-height: 45px; overflow: hidden;">{{ $cidade->descricao }}</div>
                         </td>
                         <td>
                             {{ $cidade->estado->nome }}

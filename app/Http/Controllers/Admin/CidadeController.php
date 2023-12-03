@@ -11,7 +11,6 @@ class CidadeController extends Controller
 
     public function create(Request $request)
     {
-        dd($request);
         $request->validate([
             'nome' => 'required|string',
             'descricao' => 'required|string',

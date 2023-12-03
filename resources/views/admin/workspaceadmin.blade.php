@@ -5,7 +5,7 @@
         <div class="mt-5 d-flex gap-3">
 
             <button id="botaoSessao1" class="btn btn-primary" onclick="toggleSessao('sessao1')"> Roteiros de Viagens
-                1</button>
+                </button>
 
             @if (isset($cidades) && count($cidades) > 0)
                 <button id="botaoSessao2" class="btn btn-primary" onclick="toggleSessao('sessao2')"> Estados | Cidades

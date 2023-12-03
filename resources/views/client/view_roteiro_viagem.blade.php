@@ -2,11 +2,38 @@
 
 @section('sessao-viagem')
     @if (empty($viagem[0]->id))
-
         <section>
-            sem dados de viagem
+            Sem dados da viagem no momento.
+            <br>
+            Perdão pelo transtorno!
         </section>
     @else
+        @if (file_exists(public_path($imagens_cidade[0]->caminho)))
+            <!-- Exibir imagem na publica-->
+            <div class="container-parallax">
+                <div class="div-parallax" style="background-image: url('{{ $imagens_cidade[0]->caminho }}')"
+                    alt="{{ $imagens_cidade[0]->legenda }}">
+                    <div class="title-parallax">
+                        <span class="title-cidade"> {{ $viagem[0]->cidade->nome }} </span>
+                        <span class="title-estado"> {{ $viagem[0]->cidade->estado->nome }} </span>
+                    </div>
+                </div>
+            </div>
+        @else
+            <!-- Exibir imagem pelo metodo asset-->
+            <div class="container-parallax">
+                <div class="div-parallax"
+                    style="background-image: url('{{ asset('storage/' . $imagens_cidade[0]->caminho) }}')"
+                    alt="{{ $imagens_cidade[0]->legenda }}">
+                    <div class="title-parallax">
+                        <span class="title-cidade"> {{ $viagem[0]->cidade->nome }} </span>
+                        <span class="title-estado"> {{ $viagem[0]->cidade->estado->nome }} </span>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        {{-- 
         <section class="container mx-auto sessao-informacoes-iniciais">
             <div class="div-informacoes d-grid gap-4">
                 <div class="div-title">
@@ -46,10 +73,13 @@
                     @endif
                 </div>
             </div>
-        </section>
+        </section> --}}
 
-        <section class="container mx-auto my-4 sessao-roteiros-viagem">
-            <h2 class="my-2 mb-5">Pontos Turisticos</h2>
+        <section class="container mx-auto my-5 sessao-roteiros-viagem">
+            <div class="descricao-cidade">
+                <p> {{ $viagem[0]->cidade->descricao }} </p>
+            </div>
+            <h2 class="my-5">Pontos Turisticos</h2>
             @foreach ($pontos_turisticos as $ponto)
                 <h3>{{ $ponto->titulo }}</h3>
                 <p>{{ $ponto->descricao }}</p>
@@ -63,6 +93,5 @@
                 <p>{{ $ponto->descricao }}</p>
             @endforeach
         </section> --}}
-
     @endif
 @endsection

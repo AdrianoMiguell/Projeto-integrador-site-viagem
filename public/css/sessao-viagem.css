@@ -12,6 +12,10 @@
         gap: 4rem;
         padding: 5rem 3rem !important;
     }
+    .sessao-informacoes-iniciais .div-informacoes {
+        min-width: 25vw;
+        max-width: 30vw;
+    }
 }
 @media screen and (max-width: 992px) {
     .sessao-informacoes-iniciais {
@@ -47,16 +51,12 @@ nav *:not(.nav-item-search input):not(.dropdown-item) {
     color: rgb(var(--sec-c)) !important;
 }
 .sessao-informacoes-iniciais {
-    font-family: "Italiana", sans-serif;
     display: flex;
     flex-basis: content;
     justify-content: center;
     padding: 5rem 1.5rem;
 }
-.sessao-informacoes-iniciais .div-informacoes {
-    min-width: 25vw;
-    max-width: 30vw;
-}
+
 main * {
     color: rgb(var(--sec-c));
 }

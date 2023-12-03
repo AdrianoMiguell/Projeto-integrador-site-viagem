@@ -8,10 +8,6 @@
 
         {{-- <img src="/img/pao-de-acucar_rio-de-janeiro.png" alt=""> --}}
 
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolorem, quasi eligendi dolorum tenetur
-        repudiandae possimus magnam culpa unde tempore veritatis voluptatibus ratione quo necessitatibus, dolores officiis
-        sapiente minus dolore.
-
     </section>
     {{-- .parallax-container --}}
 @endsection

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ViagemSeeder::class,
             ImagemCidadeSeeder::class,
             PontoTuristicoSeeder::class,
+            ImagemTuristicaSeeder::class,
         ]);
     }
 }

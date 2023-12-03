@@ -42,4 +42,24 @@ class UserController extends Controller
 
         return view('client.view_roteiro_viagem', compact('estados', 'cidades', 'viagens', 'viagem', 'roteiros', 'pontos_turisticos', 'imagens_turisticas', 'imagens_cidade'));
     }
+
+    public function search_viagem(Request $request)
+    {
+
+        $palavra =  $request->search;
+
+        $palavraChave = $request->input('palavra_chave');
+
+        $estados = Estado::all();
+        $cidades = Cidade::all();
+        $viagens = Viagem::all();
+
+        // Pesquisa
+        $cidades_pesquisadas = Cidade::whereRaw('LOWER(nome) LIKE ?', ['%' . strtolower($palavra) . '%'])->get();
+
+        // Pesquisa
+        $estados_pesquisadas = Estado::whereRaw('LOWER(nome) LIKE ?', ['%' . strtolower($palavra) . '%'])->get();
+
+        return view('client.view_pesquisa', compact('estados', 'cidades', 'viagens', 'cidades_pesquisadas', 'estados_pesquisadas'));
+    }
 }

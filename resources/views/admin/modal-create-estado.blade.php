@@ -40,7 +40,7 @@
                         </div>
                         <div>
                             <label for="pais" class="form-label"> Pais </label>
-                            <input type="text" name="pais" id="pais">
+                            <input type="text" name="pais" id="pais" class="form-control">
                         </div>
                     </div>
 

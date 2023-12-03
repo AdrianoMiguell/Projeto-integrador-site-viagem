@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(UserController::class)->group(function () {
     Route::get('/', 'view')->name('welcome');
     Route::get('/view_viagem', 'view_viagem')->name('view.user.viagem');
+    Route::get('/search_viagem', 'search_viagem')->name('search.viagem');
 });
 
 Route::middleware('auth')->group(function () {
