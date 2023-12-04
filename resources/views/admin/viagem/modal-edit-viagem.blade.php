@@ -27,12 +27,12 @@
                     <div class="mt-2">
                         <label for="titulo" class="form-label"> Titulo </label>
                         <input type="text" id="titulo" name="titulo" class="form-control"
-                            value="{{ $viagem->titulo }}" />
+                            value="{{ $viagem->titulo }}" required/>
                     </div>
                     <div class="mt-2">
                         <label for="descricao" class="form-label"> Descrição </label>
                         <textarea name="descricao" id="descricao" cols="30" rows="10" maxlength="5000" minlength="25"
-                            class="form-control"> {{ $viagem->descricao }} </textarea>
+                            class="form-control" required> {{ $viagem->descricao }} </textarea>
                     </div>
                     <div class="mt-2">
                         <label for="sugestoes" class="form-label"> Sugestões </label>

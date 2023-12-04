@@ -27,11 +27,11 @@
 
                     <div class="mt-2">
                         <label for="nome" class="form-label"> Nome </label>
-                        <input type="text" id="nome" name="nome" class="form-control" />
+                        <input type="text" id="nome" name="nome" class="form-control" maxlength="60" required />
                     </div>
                     <div class="mt-2">
                         <label for="descricao" class="form-label"> Descrição </label>
-                        <input type="text" id="descricao" name="descricao" class="form-control" />
+                        <input type="text" id="descricao" name="descricao" class="form-control" maxlength="1000" required />
                     </div>
                     <div class="my-2 d-flex justify-content-between gap-2">
                         <div>

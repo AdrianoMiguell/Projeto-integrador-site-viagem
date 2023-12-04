@@ -1,6 +1,6 @@
 @media (min-width: 1440px) {
     /* .offcanvas-viagens, */
-    .nav-item:nth-child(n + 5):not(.nav-item-dropdown):not(.nav-item-search)  {
+    .nav-item:nth-child(n + 5):not(.nav-item-dropdown):not(.nav-item-search) {
         display: none;
     }
 }
@@ -25,11 +25,43 @@
     }
 }
 
-nav{
+nav {
     z-index: 999 !important;
 }
 
 .navbar-brand {
     font-family: "Italiana", sans-serif !important;
     font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+    --bs-nav-link-hover-color: rgb(var(--quat-c));
+    --bs-navbar-active-color: rgb(var(--quat-c));
+}
+.dropdown-menu {
+    --bs-dropdown-bg: rgba(var(--light-c), 0.9);
+    --bs-dropdown-link-hover-color: rgb(var(--light-c));
+    --bs-dropdown-link-active-bg: rgb(var(--sec-c));
+    --bs-dropdown-link-hover-bg: rgb(var(--sec-c));
+}
+
+.accordion-item {
+    border-radius: 5px;
+}
+.accordion-item .accordion-button {
+    --bs-accordion-active-color: rgb(var(--light-c));
+    --bs-accordion-active-bg: rgb(var(--quat-c));
+    box-shadow: none !important;
+}
+.accordion-item .accordion-button {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.accordion-item .show {
+    background-color: rgb(var(--tert-c));
+    transition: 0.25s;
+}
+.accordion-item .show:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }

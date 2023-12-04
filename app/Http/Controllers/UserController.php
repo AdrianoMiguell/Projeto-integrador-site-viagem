@@ -30,22 +30,30 @@ class UserController extends Controller
         $cidades = Cidade::all();
         $viagens = Viagem::all();
 
-        $viagem = Viagem::where('cidade_id', $request->cidade_id)->limit(1)->get();
+        if (isset($request->viagem_id)) {
+            $viagem = Viagem::where('id', $request->viagem_id)->get();
+        } else {
+            $viagem = Viagem::where('cidade_id', $request->cidade_id)->get();
+        }
+
         if (empty($viagem[0]->id)) {
             return view('client.view_roteiro_viagem', compact('estados', 'cidades', 'viagens'));
         }
+        if (count($viagem) > 1) {
+            return view('client.view_roteiro_viagem', compact('estados', 'cidades', 'viagens', 'viagem'));
+        } else {
+            $imagens_cidade = ImagemCidade::where('viagem_id', $viagem[0]->id)->get();
+            $pontos_turisticos = PontoTuristico::where('viagem_id', $viagem[0]->id)->get();
+            $imagens_turisticas = ImagemTuristica::where('viagem_id', $viagem[0]->id)->get();
+            $roteiros = Roteiro::where('viagem_id', $viagem[0]->id)->get();
 
-        $imagens_cidade = ImagemCidade::where('viagem_id', $viagem[0]->id)->get();
-        $pontos_turisticos = PontoTuristico::where('viagem_id', $viagem[0]->id)->get();
-        $imagens_turisticas = ImagemTuristica::where('viagem_id', $viagem[0]->id)->get();
-        $roteiros = Roteiro::where('viagem_id', $viagem[0]->id)->get();
+            return view('client.view_roteiro_viagem', compact('estados', 'cidades', 'viagens', 'viagem', 'roteiros', 'pontos_turisticos', 'imagens_turisticas', 'imagens_cidade'));
+        }
 
-        return view('client.view_roteiro_viagem', compact('estados', 'cidades', 'viagens', 'viagem', 'roteiros', 'pontos_turisticos', 'imagens_turisticas', 'imagens_cidade'));
     }
 
-    public function search_viagem(Request $request)
+    public function search(Request $request)
     {
-
         $palavra =  $request->search;
 
         $palavraChave = $request->input('palavra_chave');
@@ -57,14 +65,14 @@ class UserController extends Controller
         // Pesquisa
         $cidades_pesquisadas = Cidade::whereRaw('LOWER(nome) LIKE ?', ['%' . strtolower($palavra) . '%'])->get();
 
-        if(count($cidades_pesquisadas) == 0) {
+        if (count($cidades_pesquisadas) == 0) {
             // Pesquisa
-            $estados_pesquisadas = Estado::whereRaw('LOWER(nome) LIKE ?', ['%' . strtolower($palavra) . '%'])->get();
+            $estados_pesquisados = Estado::whereRaw('LOWER(nome) LIKE ?', ['%' . strtolower($palavra) . '%'])->get();
         } else {
-            $estados_pesquisadas = null;
+            $estados_pesquisados = null;
         }
 
 
-        return view('client.view_pesquisa', compact('estados', 'cidades', 'viagens', 'cidades_pesquisadas', 'estados_pesquisadas'));
+        return view('client.view_pesquisa', compact('estados', 'cidades', 'viagens', 'cidades_pesquisadas', 'estados_pesquisados'));
     }
 }

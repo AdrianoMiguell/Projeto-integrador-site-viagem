@@ -18,9 +18,8 @@ class AdminController extends Controller
 
         $estados = Estado::all();
         $pontos_turisticos = PontoTuristico::all();
-        $cidades = Cidade::paginate(15);
+        $cidades = Cidade::all();
         $viagens = Viagem::paginate(15);
-
 
         return view('admin.workspaceadmin', compact('estados', 'cidades', 'viagens', 'pontos_turisticos'));
     }
@@ -36,7 +35,7 @@ class AdminController extends Controller
             $viagens = Viagem::paginate(25);
         }
 
-        $cidades = Cidade::paginate(25);
+        $cidades = Cidade::all();
         $pontos_turisticos = PontoTuristico::all();
         $estados = Estado::all();
 

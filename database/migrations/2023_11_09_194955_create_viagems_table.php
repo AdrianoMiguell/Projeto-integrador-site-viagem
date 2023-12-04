@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('viagems', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo', 350);
+            $table->string('titulo', 350)->unique();;
             $table->string('descricao', 5000);
             $table->string('sugestoes', 5000)->nullable();
             $table->foreignId('cidade_id')

@@ -27,7 +27,8 @@
                             <div id="collapseAccordion{{ $key }}" class="accordion-collapse collapse"
                                 data-bs-parent="#accordionEstados">
                                 <div class="accordion-body">
-                                    <form action="{{ route('estado.opcoes') }}" method="POST" enctype="multipart/form-data" class="mb-0">
+                                    <form action="{{ route('estado.opcoes') }}" method="POST"
+                                        enctype="multipart/form-data" class="mb-0">
                                         @csrf
                                         @method('PUT')
 
@@ -36,12 +37,12 @@
                                         <div class="mt-2">
                                             <label for="nome" class="form-label"> Nome </label>
                                             <input id="nome" name="nome" value="{{ $estado->nome }}"
-                                                class="form-control" />
+                                                class="form-control" maxlength="60" />
                                         </div>
                                         <div class="mt-2">
                                             <label for="descricao" class="form-label"> Descrição </label>
                                             <input id="descricao" name="descricao" value="{{ $estado->descricao }}"
-                                                class="form-control" />
+                                                class="form-control" maxlength="1000" />
                                         </div>
 
                                         <div class="my-2 d-flex justify-content-between gap-2">
@@ -59,7 +60,7 @@
 
                                         </div>
 
-                                        <div class="m-2 mb-0 d-flex justify-content-end">       
+                                        <div class="m-2 mb-0 d-flex justify-content-end">
                                             <button class="btn btn-success"> Editar </button>
                                         </div>
                                     </form>

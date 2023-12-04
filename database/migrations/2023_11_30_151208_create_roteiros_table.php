@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('roteiros', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo');
-            $table->string('subtitulo_manha')->default('Manhã');
-            $table->string('manha');
-            $table->string('subtitulo_tarde')->default('Tarde');
-            $table->string('tarde');
-            $table->string('subtitulo_noite')->default('Noite');
-            $table->string('noite');
+            $table->string('titulo', 100);
+            $table->string('subtitulo_manha', 100)->default('Manhã');
+            $table->string('manha', 1000);
+            $table->string('subtitulo_tarde', 100)->default('Tarde');
+            $table->string('tarde', 1000);
+            $table->string('subtitulo_noite', 100)->default('Noite');
+            $table->string('noite', 1000);
             $table->foreignId('viagem_id')
                 ->constrained()
                 ->onUpdate('cascade')

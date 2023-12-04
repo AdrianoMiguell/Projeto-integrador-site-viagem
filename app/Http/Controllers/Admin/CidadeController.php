@@ -12,9 +12,12 @@ class CidadeController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'nome' => 'required|string',
+            'nome' => 'required|string|max:60',
             'descricao' => 'required|string',
             'estado_id' => 'required',
+        ], [
+            'nome' => ['required' => 'O Campo nome é obrigatório.'],
+            'descricao' => ['required' => 'O Campo descrição é obrigatória.'],
         ]);
 
         $cidade = $request->except('_token');
@@ -31,6 +34,9 @@ class CidadeController extends Controller
             'nome' => 'required|string',
             'descricao' => 'required|string',
             'estado_id' => 'required',
+        ], [
+            'nome' => ['required' => 'O Campo nome é obrigatório.'],
+            'descricao' => ['required' => 'O Campo descrição é obrigatória.'],
         ]);
 
         $cidade = $request->except('_token');

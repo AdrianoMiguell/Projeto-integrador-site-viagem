@@ -2,13 +2,13 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\EstadoController;
-use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\CidadeController;
 use App\Http\Controllers\Admin\ImagemCidadeController;
 use App\Http\Controllers\Admin\PontoTuristicoController;
 use App\Http\Controllers\Admin\ViagemController;
 use App\Http\Controllers\Admin\ImagemTuristicaController;
 use App\Http\Controllers\Admin\RoteiroController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,15 +25,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/', 'view')->name('welcome');
+    Route::get('/search', 'search')->name('search.viagem');
     Route::get('/view_viagem', 'view_viagem')->name('view.user.viagem');
-    Route::get('/search_viagem', 'search_viagem')->name('search.viagem');
 });
 
 Route::middleware('auth')->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/workspaceadmin', 'view')->middleware('verified')->name('workspaceadmin');
         Route::get('/search_viagem', 'search_viagem')->name('workspaceadmin.search');
-
     });
 
     // view_roteiro_viagem

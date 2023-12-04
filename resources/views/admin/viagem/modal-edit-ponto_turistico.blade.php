@@ -25,11 +25,11 @@
                     <div class="mt-2">
                         <label for="titulo" class="form-label"> Nome do local </label>
                         <input type="text" id="titulo" name="titulo" value=" {{ $ponto->titulo }}"
-                            class="form-control" />
+                            class="form-control" maxlength="100" required />
                     </div>
                     <div class="mt-2">
                         <label for="descricao" class="form-label"> Descrição </label>
-                        <textarea name="descricao" id="descricao" cols="30" rows="10" class="form-control">
+                        <textarea name="descricao" id="descricao" cols="30" rows="10" class="form-control" maxlength="5000" required>
                             {{ $ponto->descricao }}
                         </textarea>
                     </div>

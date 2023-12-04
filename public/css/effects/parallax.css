@@ -31,6 +31,8 @@
 }
 
 .container-parallax .div-parallax .text-parallax {
+    padding: 5px;
+    background-color: rgba(var(--dark-c), .1);
     z-index: 2;
 }
 .container-parallax .div-parallax .text-parallax * {
@@ -44,7 +46,7 @@
     text-decoration-line: underline;
     text-underline-offset: 25px;
     color: rgb(var(--light-c));
-    text-shadow: 0 0 2px rgb(var(--dark-c));
+    text-shadow: 0 0 2.5px rgb(var(--dark-c));
 }
 .container-parallax .div-parallax .text-parallax .title-estado {
     font-size: 32pt;

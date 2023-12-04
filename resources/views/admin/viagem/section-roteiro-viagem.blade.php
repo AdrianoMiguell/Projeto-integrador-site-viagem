@@ -81,9 +81,19 @@
                                 data-bs-target="#editarImagemCidade{{ isset($key_img_cid) ? $key_img_cid : '' }}">
                                 <div class="imagem_cidade d-grid">
                                     <!-- Exibir imagem pelo metodo asset-->
-                                    <img src="{{ asset('storage/' . $imagem_cidade->caminho) }}"
-                                        alt="{{ $imagem_cidade->legenda }}" width="250px">
-                                    <span class="legenda" style="font-size: 10pt;"> {{ $imagem_cidade->legenda }} </span>
+                                    @if (file_exists(public_path($imagem_cidade->caminho)))
+                                        <!-- Se a imagem existe, exiba-a -->
+                                        <img src="{{ $imagem_cidade->caminho }}"
+                                            alt="{{ $imagem_cidade->legenda }}" width="250px">
+                                        <span class="legenda" style="font-size: 10pt;"> {{ $imagem_cidade->legenda }}
+                                        </span>
+                                    @else
+                                        <!-- Se a imagem não existe, exiba uma mensagem ou um placeholder -->
+                                        <img src="{{ asset('storage/' . $imagem_cidade->caminho) }}"
+                                            alt="{{ $imagem_cidade->legenda }}" width="250px">
+                                        <span class="legenda" style="font-size: 10pt;"> {{ $imagem_cidade->legenda }}
+                                        </span>
+                                    @endif
                                 </div>
                             </button>
                             @include('admin.viagem.modal-edit-imagem_cidade')
@@ -116,9 +126,15 @@
                                     <button type="button" class="btn btn-light bg-light p-1" data-bs-toggle="modal"
                                         data-bs-target="#editarImagemTuristica{{ isset($key_img) ? $key_img : '' }}">
                                         <div class="imagem_ponto_turistico">
-                                            <img src="{{ asset('storage/' . $imagem->caminho) }}" alt=""
-                                                class="imagem_turistica">
-                                            <span class="legenda"> {{ $imagem->legenda }} </span>
+                                            @if (file_exists(public_path($imagem->caminho)))
+                                                <img src="{{ $imagem->caminho }}" alt=""
+                                                    class="imagem_turistica">
+                                                <span class="legenda"> {{ $imagem->legenda }} </span>
+                                            @else
+                                                <img src="{{ asset('storage/' . $imagem->caminho) }}" alt=""
+                                                    class="imagem_turistica">
+                                                <span class="legenda"> {{ $imagem->legenda }} </span>
+                                            @endif
                                         </div>
                                     </button>
                                     @include('admin.viagem.modal-edit-imagem_turistica')

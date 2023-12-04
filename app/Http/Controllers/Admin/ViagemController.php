@@ -48,6 +48,12 @@ class ViagemController extends Controller
 
         $viagem = $request->except('_token');
 
+        $viagen_ja_existente = Viagem::where('cidade_id', $viagem['cidade_id'])->get();
+        if ($viagen_ja_existente != null && count($viagen_ja_existente) > 0) {
+            $errors = "Viagem a esta cidade já cadastrada!";
+            return redirect()->route('workspaceadmin')->withErrors($errors);
+        }
+
         $create_viagem = Viagem::create($viagem);
 
         return redirect()->route('viagem.view', ['id' => $create_viagem['id']])->with('status', 'Nova viagem cadastrado!');

@@ -20,27 +20,27 @@
 
                     <div class="mt-2">
                         <label for="titulo" class="form-label"> Titulo </label>
-                        <input type="text" id="titulo" name="titulo" class="form-control" />
+                        <input type="text" id="titulo" name="titulo" class="form-control" maxlength="100" required />
                     </div>
                     <div class="mt-2">
                         <label for="subtitulo_manha" class="form-label"> Roteiro da Manhã </label>
                         <input type="text" name="subtitulo_manha" placeholder="Titulo -> Manhã: Chegada"
-                            class="mb-2 form-control">
-                        <textarea name="manha" id="manha" cols="30" rows="4" class="form-control">
+                            class="mb-2 form-control" maxlength="100" required>
+                        <textarea name="manha" id="manha" cols="30" rows="4" class="form-control" maxlength="1000" required>
                         </textarea>
                     </div>
                     <div class="mt-2">
                         <label for="subtitulo_tarde" class="form-label"> Roteiro da Tarde </label>
                         <input type="text" name="subtitulo_tarde" placeholder="Titulo -> Tarde: Chegada"
-                            class="mb-2 form-control">
-                        <textarea name="tarde" id="tarde" cols="30" rows="4" class="form-control">
+                            class="mb-2 form-control" maxlength="100" required>
+                        <textarea name="tarde" id="tarde" cols="30" rows="4" class="form-control" maxlength="1000" required>
                         </textarea>
                     </div>
                     <div class="mt-2">
                         <label for="subtitulo_noite" class="form-label"> Roteiro da Noite </label>
                         <input type="text" name="subtitulo_noite" placeholder="Titulo -> Noite: Chegada"
-                            class="mb-2 form-control">
-                        <textarea name="noite" id="noite" cols="30" rows="4" class="form-control">
+                            class="mb-2 form-control" maxlength="100" required>
+                        <textarea name="noite" id="noite" cols="30" rows="4" class="form-control" maxlength="1000" required>
                         </textarea>
                     </div>
 

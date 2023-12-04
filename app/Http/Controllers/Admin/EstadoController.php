@@ -18,13 +18,15 @@ class EstadoController extends Controller
             'descricao' => 'nullable|string',
             'bandeira' => 'nullable|image',
             'pais' => 'required|string',
+        ], [
+            'nome' => ['required' => 'O Campo nome é obrigatório.'],
         ]);
 
         $estado = $request->except('_token');
         if (isset($estado['bandeira']) && !Storage::exists($estado['bandeira'])) {
             $estado['bandeira'] = $request->bandeira->store('/img/bandeiras_dos_estados');
         }
-        
+
         Estado::create($estado);
 
         return redirect()->route('workspaceadmin')->with('status', 'Novo estado cadastrado!');
@@ -59,15 +61,15 @@ class EstadoController extends Controller
     {
 
         $cidades = Cidade::where('estado_id', $request->id)->get();
-        
+
         if (isset($cidades) && count($cidades) > 0) {
             $errors = 'Estado não deletado, pois está sendo referenciado por alguma cidade.';
             // return redirect()->route('workspaceadmin')->with('errors', "Estado não deletado, pois está sendo usado!");
             return redirect()->route('workspaceadmin')->withError($errors);
         } else {
-            
+
             $estado = Estado::findOrFail($request->id);
-            
+
             if (isset($estado->bandeira) && Storage::exists($estado->bandeira)) {
                 Storage::delete($estado->bandeira);
             }

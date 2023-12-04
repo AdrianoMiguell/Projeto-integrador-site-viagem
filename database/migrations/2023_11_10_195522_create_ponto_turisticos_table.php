@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ponto_turisticos', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo', 200);
+            $table->string('titulo', 100);
             $table->string('descricao', 5000);
             $table->foreignId('viagem_id')
                 ->constrained()

@@ -1,14 +1,13 @@
 <nav class="navbar navbar-expand-lg px-5 ">
     <div class="container-fluid">
-        @if (Auth::user()->email == 'admin@gmail.com')
+        @if (isset(Auth::user()->id) && Auth::user()->email == 'admin@gmail.com')
             <a class="navbar-brand" href="/workspaceadmin">NÔMASHE</a>
         @else
             <a class="navbar-brand" href="/">NÔMASHE</a>
         @endif
 
-
         <ul class="navbar-nav flex-row gap-5 justify-content-end align-items-center flex-grow-1 px-4">
-            @if (Auth::user()->email == 'admin@gmail.com')
+            @if (isset(Auth::user()->id) && Auth::user()->email == 'admin@gmail.com')
                 <li class="nav-item nav-item-search">
                     <form class="d-flex" role="search" action="{{ route('workspaceadmin.search') }}">
 
@@ -18,6 +17,20 @@
                             <i class="bi bi-search"></i>
                         </button>
                     </form>
+                </li>
+                <li class="nav-item nav-item-search dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <ul class="dropdown-menu position-absolute">
+                        <li>
+                            <form action="{{route('logout')}}" method="post">
+                                @csrf
+                                <button class="dropdown-item" type="submit"> logout </button>
+                            </form>
+                        </li>
+                    </ul>
                 </li>
             @else
                 @if (isset($viagens) && count($viagens) > 0)
@@ -61,7 +74,6 @@
                 </li>
                 <li class="nav-item nav-item-search">
                     <form class="d-flex" role="search" action="{{ route('search.viagem') }}">
-
                         <input class="form-control text-dark mx-1" type="search" placeholder="Search"
                             aria-label="Search" name="search">
                         <button class="btn btn-outline-success" type="submit">

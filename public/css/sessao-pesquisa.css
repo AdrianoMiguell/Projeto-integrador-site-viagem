@@ -4,7 +4,6 @@
 }
 
 .div-viagens .link-viagem {
-    background-color: rgba(var(--dark-c), .025) !important;
     /* opacity: 0.9; */
     padding: 1px;
     border-radius: 10px;
@@ -30,5 +29,4 @@
 
 .pagination .page-item{ 
     color: rgb(var(--quat-c)) !important;
-    background-color: rgb(var(--main-c)) !important;
 }

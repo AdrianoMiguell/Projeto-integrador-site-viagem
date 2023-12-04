@@ -21,11 +21,13 @@
 
                     <div class="mt-2">
                         <label for="nome" class="form-label"> Nome </label>
-                        <input id="nome" name="nome" value="{{ $cidade->nome }}" class="form-control" />
+                        <input id="nome" name="nome" value="{{ $cidade->nome }}" class="form-control"
+                            maxlength="60" required />
                     </div>
                     <div class="mt-2">
                         <label for="descricao" class="form-label"> Descricão </label>
-                        <input id="descricao" name="descricao" value="{{ $cidade->descricao }}" class="form-control" />
+                        <input id="descricao" name="descricao" value="{{ $cidade->descricao }}" class="form-control"
+                            maxlength="1000" required />
                     </div>
 
                     <input type="hidden" name="id" value="{{ $cidade->id }}">
