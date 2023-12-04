@@ -21,7 +21,6 @@ class PontoTuristicoController extends Controller
 
         $ponto_turistico = $request->except('_token');
         PontoTuristico::create($ponto_turistico);
-
         return redirect()->route('viagem.view', ['id' => $ponto_turistico['viagem_id']])->with('status', 'Novo ponto turistico cadastrado!');
     }
 

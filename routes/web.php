@@ -30,9 +30,10 @@ Route::controller(UserController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-
     Route::controller(AdminController::class)->group(function () {
         Route::get('/workspaceadmin', 'view')->middleware('verified')->name('workspaceadmin');
+        Route::get('/search_viagem', 'search_viagem')->name('workspaceadmin.search');
+
     });
 
     // view_roteiro_viagem

@@ -1,8 +1,7 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+<button type="button" class="btn btn-success" data-bs-toggle="modal"
     data-bs-target="#pontoTuristico{{ isset($key) ? $key : '' }}">
     <i class="bi bi-pencil"></i>
-    <span>Ponto Turistico</span>
 </button>
 
 <!-- Modal -->
@@ -11,7 +10,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="pontoTuristico{{ isset($key) ? $key : '' }}Label"> Novo Ponto Turistico
+                <h1 class="modal-title fs-5" id="pontoTuristico{{ isset($key) ? $key : '' }}Label"> Editar Ponto Turistico
                 </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>

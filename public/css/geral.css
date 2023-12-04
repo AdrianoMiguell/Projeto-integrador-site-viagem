@@ -2,6 +2,7 @@
 @import "./auth.css";
 @import "./classes.css";
 @import "./imagens.css";
+@import "./sessao-pesquisa.css";
 @import "./effects/parallax.css";
 @import "./effects/sessao.css";
 
@@ -11,22 +12,34 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: rgb(var(--dark-c));
 }
 
 :root {
-    --main-c: 15, 15, 15;
-    --sec-c: 246, 242, 255;
-    --tert-c: 43, 48, 59;
-    --quat-c: 250, 255, 204;
+    --main-c: 247, 201, 194;
+    --sec-c: 244, 143, 123;
+    --tert-c: 186, 219, 208;
+    --quat-c: 5, 107, 128;
+    --light-c: 246, 242, 255;
+    --dark-c: 15, 15, 15;
 }
 
-#colors {
+#colors { 
+    color: rgb(247, 201, 194);
+    color: rgb(244, 143, 123);
+    color: rgb(186, 219, 208);
+    color: rgb(5, 107, 128);
+ 
     color: rgb(15, 15, 15);
     color: rgb(246, 242, 255);
-    color: rgb(43, 48, 59);
-    color: rgb(250, 255, 204);
 }
 
 body {
+    min-height: 95vh;
     font-family: "Lexend", sans-serif;
+    background-color: rgb(var(--light-c));
+}
+
+body a {
+    text-decoration: none !important;
 }

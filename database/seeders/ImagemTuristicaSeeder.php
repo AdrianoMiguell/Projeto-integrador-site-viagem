@@ -274,7 +274,7 @@ class ImagemTuristicaSeeder extends Seeder
 
             [
                 // Cuiabá
-                'caminho' => '/img/pontos_turisticos/centro_historico_de_cuiaba',
+                'caminho' => '/img/pontos_turisticos/centro_historico_de_cuiaba.jpg',
                 'legenda' => 'Imagem do ponto turistico Centro Histórico de Cuiabá',
                 'viagem_id' => 19,
                 'ponto_turistico_id' => 35,
@@ -378,7 +378,7 @@ class ImagemTuristicaSeeder extends Seeder
             ],
             [
                 // Recife
-                'caminho' => '/img/pontos_turisticos/praia_de_boa_viagem',
+                'caminho' => '/img/pontos_turisticos/praia_de_boa_viagem.jpg',
                 'legenda' => 'Imagem do ponto turistico Praia de Boa Viagem',
                 'viagem_id' => 25,
                 'ponto_turistico_id' => 49,

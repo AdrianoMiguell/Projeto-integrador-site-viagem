@@ -1,0 +1,34 @@
+.div-viagens {
+    display: grid;
+    gap: 5px;
+}
+
+.div-viagens .link-viagem {
+    background-color: rgba(var(--dark-c), .025) !important;
+    /* opacity: 0.9; */
+    padding: 1px;
+    border-radius: 10px;
+    transition-duration: .5s;
+}
+
+.div-viagens .link-viagem:hover {
+    opacity: 1;
+}
+
+.div-viagens .link-viagem a {
+    display: block;
+    padding: 10px 5px;
+    margin: 0 5px;
+    color: rgb(var(--quat-c));
+    text-decoration: none;
+    transition-duration: .5s;
+}
+
+.div-viagens .link-viagem a:hover {
+    color: rgb(var(--dark-c)) !important;
+}
+
+.pagination .page-item{ 
+    color: rgb(var(--quat-c)) !important;
+    background-color: rgb(var(--main-c)) !important;
+}

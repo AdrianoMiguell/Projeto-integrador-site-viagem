@@ -8,30 +8,17 @@
             Perdão pelo transtorno!
         </section>
     @else
-        @if (file_exists(public_path($imagens_cidade[0]->caminho)))
-            <!-- Exibir imagem na publica-->
-            <div class="container-parallax">
-                <div class="div-parallax" style="background-image: url('{{ $imagens_cidade[0]->caminho }}')"
-                    alt="{{ $imagens_cidade[0]->legenda }}">
-                    <div class="title-parallax">
-                        <span class="title-cidade"> {{ $viagem[0]->cidade->nome }} </span>
-                        <span class="title-estado"> {{ $viagem[0]->cidade->estado->nome }} </span>
-                    </div>
+        <!-- Exibir imagem pelo metodo asset-->
+        <div class="container-parallax container-parallax-back">
+            <div class="div-parallax" style="background-image: url('{{ asset('storage/' . $imagens_cidade[0]->caminho) }}')"
+                alt="{{ $imagens_cidade[0]->legenda }}">
+                <div class="text-parallax">
+                    <span class="title-cidade"> {{ $viagem[0]->cidade->nome }} </span>
+                    <span class="title-estado"> {{ $viagem[0]->cidade->estado->nome }} </span>
                 </div>
             </div>
-        @else
-            <!-- Exibir imagem pelo metodo asset-->
-            <div class="container-parallax">
-                <div class="div-parallax"
-                    style="background-image: url('{{ asset('storage/' . $imagens_cidade[0]->caminho) }}')"
-                    alt="{{ $imagens_cidade[0]->legenda }}">
-                    <div class="title-parallax">
-                        <span class="title-cidade"> {{ $viagem[0]->cidade->nome }} </span>
-                        <span class="title-estado"> {{ $viagem[0]->cidade->estado->nome }} </span>
-                    </div>
-                </div>
-            </div>
-        @endif
+        </div>
+
 
         {{-- 
         <section class="container mx-auto sessao-informacoes-iniciais">
@@ -75,15 +62,38 @@
             </div>
         </section> --}}
 
-        <section class="container mx-auto my-5 sessao-roteiros-viagem">
-            <div class="descricao-cidade">
+
+        <section class="container mx-auto sessao-informacoes-viagem">
+            {{-- <div class="descricao-cidade my-3">
                 <p> {{ $viagem[0]->cidade->descricao }} </p>
+            </div> --}}
+            
+            <div class="descricao-viagem mt-5">
+                <h1 class="title-viagem mb-5 text-center"> {{ $viagem[0]->titulo }} </h1>
+                <p> {{ $viagem[0]->descricao }} </p>
             </div>
-            <h2 class="my-5">Pontos Turisticos</h2>
-            @foreach ($pontos_turisticos as $ponto)
-                <h3>{{ $ponto->titulo }}</h3>
-                <p>{{ $ponto->descricao }}</p>
-            @endforeach
+
+            <h2 class="my-5 mb-3">Pontos Turisticos</h2>
+            <div class="sessao-pontos-turistica">
+                @foreach ($pontos_turisticos as $ponto)
+                    <div class="div-ponto-turistico">
+                        <div class="informacoes" style="flex-grow: 2;">
+                            <h3>{{ $ponto->titulo }}</h3>
+                            <p>{{ $ponto->descricao }}</p>
+                        </div>
+                        <div class="imagens" style="flex-grow: 1;">
+                            @foreach ($imagens_turisticas as $imagem)
+                                @if ($imagem->ponto_turistico_id == $ponto->id)
+                                    <div class="imagem"><img src="{{ 'storage/' . $imagem->caminho }}" alt="">
+                                        <span class="legenda"> {{ $imagem->legenda }} </span>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
         </section>
 
         {{-- <section class="container mx-auto my-4 sessao-roteiros-viagem">

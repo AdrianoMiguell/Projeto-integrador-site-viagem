@@ -48,9 +48,9 @@ class ViagemController extends Controller
 
         $viagem = $request->except('_token');
 
-        Viagem::create($viagem);
+        $create_viagem = Viagem::create($viagem);
 
-        return redirect()->route('workspaceadmin')->with('status', 'Nova viagem cadastrado!');
+        return redirect()->route('viagem.view', ['id' => $create_viagem['id']])->with('status', 'Nova viagem cadastrado!');
     }
 
     public function edit(Request $request)
@@ -65,12 +65,13 @@ class ViagemController extends Controller
 
         $viagem = $request->except('_token', '_method');
 
-        Viagem::findOrFail($request['id'])->update($viagem);
+        $edit_viagem = Viagem::findOrFail($viagem['id'])->update($viagem);
 
-        return redirect()->route('workspaceadmin')->with('status', 'Registro de viagem editado com sucesso!');
+        return redirect()->route('viagem.view', ['id' => $viagem['id']])->with('status', 'Dados da página de viagem editados!');
     }
 
     public function delete(Request $request)
+
     {
 
         $request->validate([

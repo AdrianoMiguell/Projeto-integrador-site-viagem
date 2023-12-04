@@ -27,11 +27,11 @@
                     </td>
                     <td>
                         <div class="d-flex gap-2 flex-wrap">
-                            <a href="{{ route('viagem.view', ['id' => $viagem->id]) }}" class="btn btn-success">
-                                <i class="bi bi-eye-fill"></i>
-                                <span>visualizar</span>
-                            </a>
+                            @include('admin.viagem.form-delete-viagem')
                             @include('admin.viagem.modal-edit-viagem')
+                            <a href="{{ route('viagem.view', ['id' => $viagem->id]) }}" class="btn btn-primary">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
                         </div>
                     </td>
                 </tr>

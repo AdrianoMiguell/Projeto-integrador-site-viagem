@@ -37,7 +37,7 @@ class ViagemSeeder extends Seeder
             ],
             [
                 // 3
-                'titulo' =>  'Roteiros de passeio no Natal',
+                'titulo' =>  'Roteiros de passeio para a capital Natal',
                 'descricao' => 'Explore o encanto tropical de Natal, onde as praias douradas se encontram com dunas deslumbrantes e cultura vibrante. Deixe-se envolver pela hospitalidade calorosa, desfrute de atividades aquáticas emocionantes e descubra a alegria única desta cidade. Natal aguarda para transformar suas viagens em memórias inesquecíveis.',
                 'cidade_id' => 3,
             ],
@@ -55,7 +55,7 @@ class ViagemSeeder extends Seeder
             ],
             [
                 // 6
-                'titulo' =>  'Roteiros de passeio no Porto Seguro',
+                'titulo' =>  'Roteiros de passeio para o Porto Seguro',
                 'descricao' => 'Explore as maravilhas históricas e as praias paradisíacas de Porto Seguro. Nesta cidade encantadora, cada esquina revela um capítulo da história do Brasil, enquanto as areias douradas e as águas cristalinas proporcionam um refúgio relaxante. Embarque nessa viagem e descubra o encanto único desta joia baiana.',
                 'cidade_id' => 6,
             ],
@@ -67,19 +67,19 @@ class ViagemSeeder extends Seeder
             ],
             [
                 // 8
-                'titulo' =>  'Roteiro Ubatuba',
+                'titulo' =>  'Roteiro de Viagem para Ubatuba',
                 'descricao' => 'Explore a beleza selvagem de Ubatuba, onde praias paradisíacas se encontram com a exuberância da Mata Atlântica. Em cada canto, descubra aventuras aquáticas, trilhas deslumbrantes e uma atmosfera descontraída. Em Ubatuba, cada momento é uma descoberta, convidando você a se perder na natureza e se encontrar na serenidade do litoral.',
                 'cidade_id' => 8,
             ],
             [
                 // 9
-                'titulo' =>  'São Paulo',
+                'titulo' =>  'Roteiro de Viagem para São Paulo',
                 'descricao' => 'Em São Paulo, a cidade que nunca dorme, descubra a energia pulsante da cultura, gastronomia e diversidade. Dos arranha-céus imponentes ao charme dos bairros históricos, cada esquina revela uma história. Explore museus de renome, saboreie a culinária global e mergulhe na vida noturna agitada. São Paulo, onde cada visita é uma jornada inesquecível.',
                 'cidade_id' => 9,
             ],
             [
                 // 10
-                'titulo' =>  'Roteiros de passeio no Rio de Janeiro',
+                'titulo' =>  'Roteiros de passeio para o Rio de Janeiro',
                 'descricao' => 'Explore o Rio de Janeiro, onde a energia pulsante da cidade encontra praias deslumbrantes e paisagens icônicas. Do Cristo Redentor ao calor das praias de Copacabana, cada momento é uma sinfonia de beleza e cultura. Embarque nessa jornada única, onde a alegria carioca e a natureza exuberante se encontram, criando memórias inesquecíveis.',
                 'cidade_id' => 10,
             ],

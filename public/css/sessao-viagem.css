@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Maitree:wght@400;500;600&display=swap");
 
 @media screen and (min-width: 992px) {
-    .div-informacoes .div-title{
+    .div-informacoes .div-title {
         display: none;
     }
-    .sessao_imagens_cidade .div-title{
+    .sessao_imagens_cidade .div-title {
         display: block;
     }
     .sessao-informacoes-iniciais {
@@ -12,9 +12,14 @@
         gap: 4rem;
         padding: 5rem 3rem !important;
     }
-    .sessao-informacoes-iniciais .div-informacoes {
+    /* .sessao-informacoes-iniciais .div-informacoes {
         min-width: 25vw;
         max-width: 30vw;
+    } */
+
+    .sessao-pontos-turistica .div-ponto-turistico .informacoes {
+        min-width: 50vw;
+        max-width: 55vw;
     }
 }
 @media screen and (max-width: 992px) {
@@ -24,10 +29,10 @@
         gap: 1rem;
         flex-wrap: wrap;
     }
-    .div-informacoes .div-title{
+    .div-informacoes .div-title {
         display: block;
     }
-    .sessao_imagens_cidade .div-title{
+    .sessao_imagens_cidade .div-title {
         display: none;
     }
     .sessao_imagens_cidade .div_imagem_cidade {
@@ -40,25 +45,35 @@
     }
 }
 
-
-body {
-    background-color: rgb(var(--main-c)) !important;
+/* body {
+    background-color: rgb(var(--light-c)) !important;
 }
-nav {
-    background-color: rgba(var(--sec-c), 0.05) !important;
+main * {
+    color: rgb(var(--main-c));
+} */
+
+/* body {
+    background-color: rgb(var(--dark-c)) !important;
+}
+main * {
+    color: rgb(var(--light-c));
+} */
+
+/* nav {
+    background-color: rgba(var(--dark-c), 0.05) !important;
 }
 nav *:not(.nav-item-search input):not(.dropdown-item) {
-    color: rgb(var(--sec-c)) !important;
+    color: rgb(var(--dark-c)) !important;
 }
+main * {
+    color: rgb(var(--dark-c));
+} */
+
 .sessao-informacoes-iniciais {
     display: flex;
     flex-basis: content;
     justify-content: center;
     padding: 5rem 1.5rem;
-}
-
-main * {
-    color: rgb(var(--sec-c));
 }
 
 .div-title .title-cidade {
@@ -71,9 +86,9 @@ main * {
 }
 
 .sessao_imagens_cidade {
-    margin: 0 1rem ;
+    margin: 0 1rem;
     display: grid;
-=    gap: 1rem;
+    gap: 1rem;
 }
 .imagem_inicial_da_cidade img {
     min-width: 300px;
@@ -88,5 +103,50 @@ main * {
     gap: 1rem;
 }
 
-.sessao-informacoes-iniciais div {
+/* .sessao-informacoes-iniciais div {
+} */
+
+.sessao-informacoes-viagem {
+    display: grid;
+    gap: 1rem;
+    padding: 5rem 1.5rem;
+}
+.sessao-informacoes-viagem p {
+    text-indent: 3rem;
+}
+
+.sessao-pontos-turistica {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.sessao-pontos-turistica .div-ponto-turistico {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+.sessao-pontos-turistica .div-ponto-turistico .informacoes {
+    padding-right: 1rem;
+}
+
+.imagens {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.imagens .imagem {
+    width: 300px;
+    display: grid;
+}
+
+.imagens .imagem img {
+    width: 300px;
+    height: auto;
+}
+
+.imagens .imagem .legenda {
+    font-size: 10pt;
 }

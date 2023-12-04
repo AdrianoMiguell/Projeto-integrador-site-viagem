@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cidade;
 use App\Models\Estado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -20,7 +21,6 @@ class EstadoController extends Controller
         ]);
 
         $estado = $request->except('_token');
-        // dd($estado);
         if (isset($estado['bandeira']) && !Storage::exists($estado['bandeira'])) {
             $estado['bandeira'] = $request->bandeira->store('/img/bandeiras_dos_estados');
         }
@@ -32,7 +32,6 @@ class EstadoController extends Controller
 
     public function edit(Request $request)
     {
-        // dd($request);
 
         $request->validate([
             'nome' => 'required|string',
@@ -59,21 +58,23 @@ class EstadoController extends Controller
     public function delete(Request $request)
     {
 
-        $paises = Estado::where('estado_id', $request->id);
-
-        if (isset($paises) && count($paises) > 0) {
-            $errors = "estado não deletado, pois está sendo referenciado por algum país";
+        $cidades = Cidade::where('estado_id', $request->id)->get();
+        
+        if (isset($cidades) && count($cidades) > 0) {
+            $errors = 'Estado não deletado, pois está sendo referenciado por alguma cidade.';
+            // return redirect()->route('workspaceadmin')->with('errors', "Estado não deletado, pois está sendo usado!");
             return redirect()->route('workspaceadmin')->withError($errors);
         } else {
-
+            
             $estado = Estado::findOrFail($request->id);
-
-            if (Storage::exists($estado->bandeira)) {
+            
+            if (isset($estado->bandeira) && Storage::exists($estado->bandeira)) {
                 Storage::delete($estado->bandeira);
             }
+
             $estado->delete();
             // Estado::findOrFail($request->id)->delete();
-            return redirect()->route('workspaceadmin')->with('status', 'estado deletado com sucesso!');
+            return redirect()->route('workspaceadmin')->with('status', 'Estado deletado com sucesso!');
         }
     }
 }

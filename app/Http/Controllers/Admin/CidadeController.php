@@ -42,15 +42,7 @@ class CidadeController extends Controller
 
     public function delete(Request $request)
     {
-
-        $paises = Cidade::where('cidade_id', $request->id);
-
-        if (isset($paises) && count($paises) > 0) {
-            $errors = "cidade não deletado, pois está sendo referenciado por algum país";
-            return redirect()->route('workspaceadmin')->withError($errors);
-        } else {
-            Cidade::findOrFail($request->id)->delete();
-            return redirect()->route('workspaceadmin')->with('status', 'cidade deletado com sucesso!');
-        }
+        Cidade::findOrFail($request->id)->delete();
+        return redirect()->route('workspaceadmin')->with('status', 'cidade deletado com sucesso!');
     }
 }

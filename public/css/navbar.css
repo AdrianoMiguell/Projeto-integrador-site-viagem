@@ -25,6 +25,11 @@
     }
 }
 
+nav{
+    z-index: 999 !important;
+}
+
 .navbar-brand {
     font-family: "Italiana", sans-serif !important;
+    font-weight: 700;
 }

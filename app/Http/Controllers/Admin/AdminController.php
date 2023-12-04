@@ -17,11 +17,29 @@ class AdminController extends Controller
     {
 
         $estados = Estado::all();
-        $cidades = Cidade::all();
-        $viagens = Viagem::all();
         $pontos_turisticos = PontoTuristico::all();
+        $cidades = Cidade::paginate(15);
+        $viagens = Viagem::paginate(15);
+
 
         return view('admin.workspaceadmin', compact('estados', 'cidades', 'viagens', 'pontos_turisticos'));
     }
 
+    public function search_viagem(Request $request)
+    {
+
+        $palavra = $request->search;
+
+        if (isset($request->search)) {
+            $viagens = Viagem::whereRaw('LOWER(descricao) LIKE ?', ['%' . strtolower($palavra) . '%'])->orWhere('titulo','like' . '%' . strtolower($palavra) . '%')->paginate(25);
+        } else {
+            $viagens = Viagem::paginate(25);
+        }
+
+        $cidades = Cidade::paginate(25);
+        $pontos_turisticos = PontoTuristico::all();
+        $estados = Estado::all();
+
+        return view('admin.workspaceadmin', compact('estados', 'cidades', 'viagens', 'pontos_turisticos'));
+    }
 }

@@ -1,65 +1,76 @@
 <nav class="navbar navbar-expand-lg px-5 ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">NÔMASHE</a>
+        @if (Auth::user()->email == 'admin@gmail.com')
+            <a class="navbar-brand" href="/workspaceadmin">NÔMASHE</a>
+        @else
+            <a class="navbar-brand" href="/">NÔMASHE</a>
+        @endif
 
-        <ul class="navbar-nav flex-row gap-5 justify-content-start align-items-center flex-grow-1 px-4">
 
-            @if (isset($viagens) && count($viagens) > 0)
-                @foreach ($estados as $key => $estado)
-                    @if ($key < 10)
-                        <li class="nav-item dropdown position-relative">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                {{ $estado->nome }}
-                            </a>
-                            <ul class="dropdown-menu position-absolute">
-                                @foreach ($cidades as $cidade)
-                                    @if ($cidade->estado_id === $estado->id)
-                                        <li><a href="{{ route('view.user.viagem', ['cidade_id' => $cidade->id]) }}"
-                                                class="dropdown-item" href="#">
-                                                {{ $cidade->nome }}
-                                            </a></li>
-                                    @endif
-                                @endforeach
-                            </ul>
-                        </li>
-                    @endif
-                @endforeach
-                {{-- <li>
-                    <button class="offcanvas-viagens-open" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasViagensOpcoes" aria-controls="offcanvasViagensOpcoes">
-                        Outros estados
-                    </button>
-                </li> --}}
+        <ul class="navbar-nav flex-row gap-5 justify-content-end align-items-center flex-grow-1 px-4">
+            @if (Auth::user()->email == 'admin@gmail.com')
+                <li class="nav-item nav-item-search">
+                    <form class="d-flex" role="search" action="{{ route('workspaceadmin.search') }}">
+
+                        <input class="form-control text-dark mx-1" type="search" placeholder="Search"
+                            aria-label="Search" name="search">
+                        <button class="btn btn-outline-success" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+                </li>
             @else
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><span>Roteiros de Viagens</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><span>Sobre nós</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><span>Contato</span></a>
-                </li>
-            @endif
+                @if (isset($viagens) && count($viagens) > 0)
+                    @foreach ($estados as $key => $estado)
+                        @if ($key < 10)
+                            <li class="nav-item dropdown position-relative">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ $estado->nome }}
+                                </a>
+                                <ul class="dropdown-menu position-absolute">
+                                    @foreach ($cidades as $cidade)
+                                        @if ($cidade->estado_id === $estado->id)
+                                            <li><a href="{{ route('view.user.viagem', ['cidade_id' => $cidade->id]) }}"
+                                                    class="dropdown-item" href="#">
+                                                    {{ $cidade->nome }}
+                                                </a></li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endif
+                    @endforeach
+                @else
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span>Roteiros de Viagens</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span>Sobre nós</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span>Contato</span></a>
+                    </li>
+                @endif
 
-            <li class="nav-item nav-item-dropdown">
-                <button class="offcanvas-viagens nav-link" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasViagensOpcoes" aria-controls="offcanvasViagensOpcoes">
-                    Outros Estados
-                </button>
-            </li>
-            <li class="nav-item nav-item-search">
-                <form class="d-flex" role="search" action="{{ route('search.viagem') }}">
-
-                    <input class="form-control text-dark mx-1" type="search" placeholder="Search" aria-label="Search"
-                        name="search">
-                    <button class="btn btn-outline-success" type="submit">
-                        <i class="bi bi-search"></i>
+                <li class="nav-item nav-item-dropdown">
+                    <button class="offcanvas-viagens nav-link" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasViagensOpcoes" aria-controls="offcanvasViagensOpcoes">
+                        Outros Estados
                     </button>
-                </form>
-            </li>
+                </li>
+                <li class="nav-item nav-item-search">
+                    <form class="d-flex" role="search" action="{{ route('search.viagem') }}">
 
+                        <input class="form-control text-dark mx-1" type="search" placeholder="Search"
+                            aria-label="Search" name="search">
+                        <button class="btn btn-outline-success" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+                </li>
+
+            @endif
         </ul>
     </div>
 

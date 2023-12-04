@@ -52,13 +52,18 @@ class UserController extends Controller
 
         $estados = Estado::all();
         $cidades = Cidade::all();
-        $viagens = Viagem::all();
+        $viagens = Viagem::paginate(15);
 
         // Pesquisa
         $cidades_pesquisadas = Cidade::whereRaw('LOWER(nome) LIKE ?', ['%' . strtolower($palavra) . '%'])->get();
 
-        // Pesquisa
-        $estados_pesquisadas = Estado::whereRaw('LOWER(nome) LIKE ?', ['%' . strtolower($palavra) . '%'])->get();
+        if(count($cidades_pesquisadas) == 0) {
+            // Pesquisa
+            $estados_pesquisadas = Estado::whereRaw('LOWER(nome) LIKE ?', ['%' . strtolower($palavra) . '%'])->get();
+        } else {
+            $estados_pesquisadas = null;
+        }
+
 
         return view('client.view_pesquisa', compact('estados', 'cidades', 'viagens', 'cidades_pesquisadas', 'estados_pesquisadas'));
     }

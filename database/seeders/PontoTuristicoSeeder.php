@@ -457,7 +457,7 @@ class PontoTuristicoSeeder extends Seeder
                 // Recife - 48
                 'titulo' => 'Recife Antigo',
                 'descricao' => 'O Recife Antigo é uma área histórica e portuária da cidade de Recife, localizada no centro da capital pernambucana. Essa região é conhecida por sua arquitetura colonial preservada, ruas paralelepípedas e uma atmosfera que remonta aos tempos coloniais do Brasil.
-               
+                
                 No Recife Antigo, você encontra diversas atrações, como o Marco Zero, o Paço Alfândega (antiga alfândega transformada em centro comercial), a Praça do Arsenal, a Rua do Bom Jesus com sua Sinagoga Kahal Zur Israel (considerada a mais antiga das Américas) , entre outros pontos históricos e culturais.
                 
                 Além disso, a região passou por um processo de revitalização, transformando-se em um polo de entretenimento com bares, restaurantes, centros culturais e espaços para eventos, atraindo tanto turistas quanto locais. O Recife Antigo é um lugar charmoso que mescla história, cultura e modernidade.

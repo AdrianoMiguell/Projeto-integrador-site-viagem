@@ -41,17 +41,22 @@ class RoteiroController extends Controller
     public function edit(Request $request)
     {
         $request->validate([
-            'id' => 'required',
             'titulo' => 'required|string',
-            'descricao' => 'required|string',
-            'viagem_id' => 'required',
+            'manha' => 'required|string',
+            'subtitulo_manha' => 'required|string',
+            'tarde' => 'required|string',
+            'subtitulo_tarde' => 'required|string',
+            'noite' => 'required|string',
+            'subtitulo_noite' => 'required|string',
+            'viagem_id' => 'required|string',
+
         ]);
 
         $roteiro = $request->except('_token', '_method');
 
         Roteiro::findOrFail($request['id'])->update($roteiro);
 
-        return redirect()->route('viagem.view', ['id' => $roteiro['viagem_id']])->with('status', 'Ponto turistico editado!');
+        return redirect()->route('viagem.view', ['id' => $roteiro['viagem_id']])->with('status', 'Roteiro de viagem editado!');
     }
 
     public function delete(Request $request)
@@ -62,6 +67,6 @@ class RoteiroController extends Controller
 
         Roteiro::findOrFail($request->id)->delete();
 
-        return redirect()->route('viagem.view', ['id' => $request->viagem_id])->with('status', 'Ponto turistico deletado!');
+        return redirect()->route('viagem.view', ['id' => $request->viagem_id])->with('status', 'Roteiro de viagem deletado!');
     }
 }

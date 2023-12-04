@@ -8,8 +8,6 @@
         <section class="container my-5">
 
             <div class="my-5 d-flex justify-content-end align-items-center gap-2">
-                @include('admin.viagem.form-delete-viagem')
-                @include('admin.viagem.modal-edit-viagem')
                 @include('admin.viagem.modal-create-ponto_turistico')
                 @include('admin.viagem.modal-create-imagem_cidade')
             </div>
@@ -42,8 +40,12 @@
                     </h3>
                     <div>
                         @foreach ($roteiros as $key_roteiro => $roteiro)
-                            <div class="my-3">
+                            <div class="my-3 d-flex justify-content-between gap-2 align-items-center">
                                 <h4>{{ $roteiro->titulo }}</h4>
+                                <div class="d-flex justify-content-between gap-2 align-items-center">
+                                    @include('admin.viagem.modal-edit-roteiro')
+                                    @include('admin.viagem.form-delete-roteiro')
+                                </div>
                             </div>
                             <div class="my-2">
                                 <h5 class="fs-5"> {{ $roteiro->subtitulo_manha }} </h5>
@@ -77,16 +79,11 @@
                         @foreach ($imagens_cidades as $key_img_cid => $imagem_cidade)
                             <button type="button" class="btn btn-light bg-light p-1" data-bs-toggle="modal"
                                 data-bs-target="#editarImagemCidade{{ isset($key_img_cid) ? $key_img_cid : '' }}">
-                                <div class="imagem_cidade">
-                                    @if (file_exists(public_path($imagem_cidade->caminho)))
-                                        <!-- Exibir imagem na publica-->
-                                        <img src="{{ $imagem_cidade->caminho }}" alt="{{ $imagem_cidade->legenda }}"
-                                            width="250px">
-                                    @else
-                                        <!-- Exibir imagem pelo metodo asset-->
-                                        <img src="{{ asset('storage/' . $imagem_cidade->caminho) }}"
-                                            alt="{{ $imagem_cidade->legenda }}" width="250px">
-                                    @endif
+                                <div class="imagem_cidade d-grid">
+                                    <!-- Exibir imagem pelo metodo asset-->
+                                    <img src="{{ asset('storage/' . $imagem_cidade->caminho) }}"
+                                        alt="{{ $imagem_cidade->legenda }}" width="250px">
+                                    <span class="legenda" style="font-size: 10pt;"> {{ $imagem_cidade->legenda }} </span>
                                 </div>
                             </button>
                             @include('admin.viagem.modal-edit-imagem_cidade')
