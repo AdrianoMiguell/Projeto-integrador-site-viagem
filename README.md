@@ -1,66 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Nômashe | Site de Viagem 
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+Nômashe é um site de roteiro de viagens que busca ajudar usuários à fazerem suas viagens com a melhor expêriencia. Nele são disponibilizados roteiros para viagens ao longo de várias cidades do Brasil, apresentando os pontos turisticos mais visitados e conhecidos, que valem à pena visitar. Tudo isso de forma objetiva, compreensivel e intuitiva.
+
+<p align="right"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="150" alt="Laravel Logo"></a></p>
+
+## Passos para instalação e uso
+
+O github disponibiliza de diversos modos para fazer upload do codigo. 
+
+Aqui estão duas dessas formas:
+<p style="display: block"> 
+   <strong> 1 - </strong>  Vá até uma pasta reservada para o projeto e use o comando no "git bash" : 
+    https://github.com/AdrianoMiguell/Projeto-integrador-site-viagem.git
+</p>
+<p style="display: block"> 
+    <strong> 2 - </strong>  Baixe o arquivo .zip do código, clicando no botão "Download .ZIP"
 </p>
 
-## About Laravel
+### Pré Requisitos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+``` Ter suporte a linguagem PHP em sua maquina ```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+``` Ter um editor de código (Ex.: Visual Studio Code) ```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+``` Ter um sistema de hospedagem local, com suporte a banco de dados (Ex.: Xampp ) ```
 
-## Learning Laravel
+``` Ter instalado em sua maquina o Gerenciador de dependências Composer ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+``` Ter instalado em sua maquina o framework Laravel ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Preparando ambiente
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-- Abra o terminal, e na pasta do projeto, execute o código: ``` composer install ```
 
-## Laravel Sponsors
+-- Ligue o seu servidor local apache e o servidor de banco de dados
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+-- Acesse a sua ferramenta de banco de dados, e crie um banco de dados com um nome que desejar (Ex: viagem_roteiros);
 
-### Premium Partners
+-- Agora, vá a raiz do código, copie um arquivo chamado  ``` .env.example ```  e cole-o nesse mesmo local, trocando o nome para apenas ```.env```.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+-- Encontre esse trecho do código ``` DB_DATABASE ```  e troque o nome do banco, pelo nome do banco de dados que você acabou de criar. 
 
-## Contributing
+--Também encontre o trecho do código ```FILESYSTEM_DISK``` e troque o valor "local" para "public".
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-- Vá ao terminal e digite este código para que as tabelas do banco sejam construidas altomaticamente:  ``` php artisan migrate ``` .  
+As seguintes tabelas devem aparecer no banco de dados.
 
-## Code of Conduct
+-- Agora, execute esse código no terminal, para geração de uma chave criptografada exigida pelo artisan: ``` php artisan key:generate ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-- Execute também o código no terminal, para gerar um link entre a pasta "public" e "storage": ``` php artisan storage:link ```
 
-## Security Vulnerabilities
+-- Finalmente, execute o código no terminal, para visualização do sistema:  ``` php artisan serve ``` . 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## Fotos do site
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<div>
+    <img src="https://github.com/AdrianoMiguell/Projeto-integrador-site-viagem/blob/main/.github/images/nomashe-admin-edit-roteiro.jpg" width="500" />
+    <img src="https://github.com/AdrianoMiguell/Projeto-integrador-site-viagem/blob/main/.github/images/nomashe-dashboard-options.jpg" width="500" />
+</div>
+<div>
+    <img src="https://github.com/AdrianoMiguell/SiteCursos-laravel/blob/main/.github/imagens_app/page_create_course_admin.jpg" width="500" />
+    <img src="https://github.com/AdrianoMiguell/Projeto-integrador-site-viagem/blob/main/.github/images/nomashe-dashboard.jpg" width="500" />
+</div>
+<div>
+    <img src="https://github.com/AdrianoMiguell/Projeto-integrador-site-viagem/blob/main/.github/images/nomashe-view-roteiro-text.jpg" width="500" />
+    <img src="https://github.com/AdrianoMiguell/Projeto-integrador-site-viagem/blob/main/.github/images/nomashe-view-roteiro.jpg" width="500" />
+</div>
+<div>
+    <img src="https://github.com/AdrianoMiguell/Projeto-integrador-site-viagem/blob/main/.github/images/nomashe-workspace-admin-states.jpg" width="500" />
+    <img src="https://github.com/AdrianoMiguell/Projeto-integrador-site-viagem/blob/main/.github/images/nomashe-workspace-admin.jpg" width="500" />
+</div>
+
+
