@@ -1,5 +1,6 @@
 @php
     $countTot = 0;
+
     if ($estados_pesquisados != null) {
         $countTot += count($estados_pesquisados);
     }

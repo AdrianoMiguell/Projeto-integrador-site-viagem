@@ -11,6 +11,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+
                 <form action="{{ route('imagem_turistica.opcoes') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -26,14 +27,18 @@
                     </div>
                     <div class="mt-2">
                         <label for="legenda" class="form-label"> Legenda </label>
-                        <input name="legenda" id="legenda" class="form-control" value="{{ $imagem->legenda }}">
+                        <input name="legenda" id="legenda" class="form-control" value="{{ $imagem->legenda }}" />
                     </div>
 
-                    <div class="m-2 my-4">
-                        @include('admin.viagem.form-delete-imagem_turistica')
-                        <button class="btn btn-success"> Editar </button>
+                    <div class="mt-4 d-flex justify-content-end">
+                        <button class="btn btn-success"> 
+                            <i class="bi bi-pencil-square"></i>
+                            Editar </button>
                     </div>
                 </form>
+                <div class="mt-1 mb-4">
+                    @include('admin.viagem.form-delete-imagem_turistica')
+                </div>
             </div>
         </div>
     </div>

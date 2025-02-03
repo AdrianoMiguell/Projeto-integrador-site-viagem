@@ -72,7 +72,6 @@ class UserController extends Controller
             $estados_pesquisados = null;
         }
 
-
         return view('client.view_pesquisa', compact('estados', 'cidades', 'viagens', 'cidades_pesquisadas', 'estados_pesquisados'));
     }
 }

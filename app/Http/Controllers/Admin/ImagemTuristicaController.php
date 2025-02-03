@@ -67,6 +67,8 @@ class ImagemTuristicaController extends Controller
 
         $imagem = ImagemTuristica::findOrFail($request->id);
 
+        dd("Delete");
+
         if (Storage::exists($imagem['caminho'])) {
             Storage::delete($imagem['caminho']);
         }

@@ -29,11 +29,16 @@
                         <input name="legenda" id="legenda" class="form-control" value="{{ $imagem_cidade->legenda }}">
                     </div>
 
-                    <div class="m-2 my-4">
-                        @include('admin.viagem.form-delete-imagem_cidade')
-                        <button class="btn btn-success"> Editar </button>
+                    <div class="mt-4 d-flex justify-content-end">
+                        <button class="btn btn-success"> 
+                            <i class="bi bi-pencil-square"></i>    
+                            Editar
+                         </button>
                     </div>
                 </form>
+                <div class="mt-1 mb-4">
+                    @include('admin.viagem.form-delete-imagem_cidade')
+                </div>
             </div>
         </div>
     </div>

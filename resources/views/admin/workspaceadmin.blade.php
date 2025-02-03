@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="d-flex justify-content-center my-5">
+    <div class="d-flex justify-content-center my-2">
         <div class="mt-5 d-flex gap-3">
 
             <button id="botaoSessao1" class="botaoSessao botao-active" onclick="toggleSessao('sessao1')"> Roteiros de Viagens
