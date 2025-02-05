@@ -52,6 +52,9 @@ As seguintes tabelas devem aparecer no banco de dados.
 
 -- Finalmente, execute o código no terminal, para visualização do sistema:  ``` php artisan serve ``` . 
 
+## Observações
+
+- Para entrar na pasta admin, coloque o seguinte caminho no final do endereço URL: ``` /workspaceadmin ```. Exemplo: ```http://127.0.0.1:8800/workspacecurso``` 
 
 ## Fotos do site
 
@@ -71,5 +74,3 @@ As seguintes tabelas devem aparecer no banco de dados.
     <img src="https://github.com/AdrianoMiguell/Projeto-integrador-site-viagem/blob/main/.github/images/nomashe-workspace-admin-states.jpg" width="500" />
     <img src="https://github.com/AdrianoMiguell/Projeto-integrador-site-viagem/blob/main/.github/images/nomashe-workspace-admin.jpg" width="500" />
 </div>
-
-
